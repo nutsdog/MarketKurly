@@ -1,0 +1,79 @@
+﻿body {
+    background-color: white;
+}
+
+li {
+    margin: 15px;
+}
+
+input {
+    letter-spacing: -0.5px;
+}
+
+.userMenu_p {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.userMenuJoin_p {
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #5f0080;
+}
+
+.userMenuRect_p {
+    font-size: 12px;
+}
+
+.navMenu {
+    padding: 15px;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navMenu:hover {
+    color: #5f0080;
+}
+
+.navMenu:hover > .navImg {
+    background: url(../images/ico_gnb_all.png) no-repeat;
+}
+
+.navImg {
+    display: inline-block;
+    width: 16px;
+    height: 14px;
+    background: url(../images/ico_gnb_all_off.png) no-repeat;
+    margin-bottom: 2px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.input_search {
+    position: absolute;
+    right: 8px;
+    top: 3px;
+}
+
+.input_text {
+    width: 242px;
+    height: 36px;
+    padding: 0 60px 0 14px;
+    border: 1px solid #f7f7f6;
+    border-radius: 18px;
+    background-color: #f7f7f7;
+    font-family: 'Noto Sans';
+    font-weight: 400;
+    font-size: 12px;
+    color: #666;
+    line-height: 16px;
+    outline: none;
+}
+
+.transitionDiv {
+    width: 14568px;
+    transform: translate3d(-1900px, 0px, 0px);
+}
