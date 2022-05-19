@@ -14,84 +14,84 @@
 <body>
     <header>
         <div class="container">
-            <div class="pt-1" style="height: 20px;">
-                <div class="float-start">
-                    <a href="#">
-                        <img src="~/images/delivery_210801.png" width="121" height="22" />
-                    </a>
-                </div>
-                <div class="float-end">
-                    <div class="row" style="width: 360px;">
-                        <div class="col-auto text-center p-0">
-                            <p class="userMenuJoin_p">회원가입</p>
-                        </div>
-                        <div class="col-auto text-center ps-2 pe-2">
-                            <p class="userMenuRect_p">|</p>
-                        </div>
-                        <div class="col-auto text-center p-0">
-                            <p class="userMenu_p">로그인</p>
-                        </div>
-                        <div class="col-auto text-center ps-2 pe-2">
-                            <p class="userMenuRect_p">|</p>
-                        </div>
-                        <div class="col-auto text-center p-0">
-                            <p class="userMenu_p">고객센터</p>
+            <div style="width: 1050px; margin: 0 auto;">
+                <div class="pt-1" style="height: 20px;">
+                    <div class="float-start">
+                        <a asp-controller="Home" asp-action="Index">
+                            <img src="~/images/delivery_210801.png" width="121" height="22" />
+                        </a>
+                    </div>
+                    <div class="float-end">
+                        <div class="row">
+                            <div class="col-auto text-center p-0">
+                                <a asp-controller="Member" asp-action="Join" class="userMenuJoin_p">회원가입</a>
+                            </div>
+                            <div class="col-auto text-center ps-2 pe-2 pt-1">
+                                <p class="userMenuRect_p">|</p>
+                            </div>
+                            <div class="col-auto text-center p-0">
+                                <a class="userMenu_p">로그인</a>
+                            </div>
+                            <div class="col-auto text-center ps-2 pe-2 pt-1">
+                                <p class="userMenuRect_p">|</p>
+                            </div>
+                            <div class="col-auto text-center p-0">
+                                <a class="userMenu_p">고객센터</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="text-center">
-                <a href="#">
-                    <img src="~/images/logo_x2.png" width="103" height="79"/>
-                </a>
-            </div>
-            <div class="w-100">
-                <ul class="nav ">
-                    <li class="pt-1 ps-0 ms-0">
-                        <a class="navMenu ps-0">
-                            <span class="navImg"></span>
-                            <span class="fw-bold">전체 카테고리</span>
-                        </a>
-                    </li>
-                    <li class="pt-1">
-                        <a class="navMenu fw-bold">신상품</a>
-                    </li>
-                    <li class="pt-1">
-                        <a class="navMenu fw-bold">베스트</a>
-                    </li>
-                    <li class="pt-1">
-                        <a class="navMenu fw-bold">알뜰쇼핑</a>
-                    </li>
-                    <li class="pt-1">
-                        <a class="navMenu fw-bold">특가/혜택</a>
-                    </li>
-                    <li>
-                        <div class="container-fluid">
-                            <form class="d-flex" style="position: relative;">
-                                <input class="input_text" type="text" placeholder="검색어를 입력하세요." width="242" height="36" />
-                                <input class="input_search" src="~/images/ico_search_x2.png" type="image" width="30" height="30" />
-                            </form>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="~/images/ico_delivery_setting.svg" />
-                    </li>
-                    <li>
-                        <img src="~/images/btn-heart-off.svg" />
-                    </li>
-                    <li class="pe-0 me-0">
-                        <img src="~/images/ico_cart.svg" />
-                    </li>
-                </ul>
+                <div class="text-center">
+                    <a asp-controller="Home" asp-action="Index">
+                        <img src="~/images/logo_x2.png" width="103" height="79" />
+                    </a>
+                </div>
+                <div class="w-100">
+                    <ul class="nav">
+                        <li class="pt-1 ps-0 ms-0">
+                            <a class="navMenu ps-0">
+                                <span class="navImg"></span>
+                                <span class="fw-bold">전체 카테고리</span>
+                            </a>
+                        </li>
+                        <li class="pt-1">
+                            <a class="navMenu fw-bold">신상품</a>
+                        </li>
+                        <li class="pt-1">
+                            <a class="navMenu fw-bold">베스트</a>
+                        </li>
+                        <li class="pt-1">
+                            <a class="navMenu fw-bold">알뜰쇼핑</a>
+                        </li>
+                        <li class="pt-1">
+                            <a class="navMenu fw-bold">특가/혜택</a>
+                        </li>
+                        <li class="ms-2 me-2">
+                            <div>
+                                <form class="d-flex" style="position: relative;">
+                                    <input class="input_text" type="text" placeholder="검색어를 입력하세요." width="242" height="36" />
+                                    <input class="input_search" src="~/images/ico_search_x2.png" type="image" width="30" height="30" />
+                                </form>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="~/images/ico_delivery_setting.svg" />
+                        </li>
+                        <li>
+                            <img src="~/images/btn-heart-off.svg" />
+                        </li>
+                        <li class="pe-0 me-0">
+                            <img src="~/images/ico_cart.svg" />
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
 
-    <div class="container">
-        <main role="main">
-            @RenderBody()
-        </main>
-    </div>
+    <main role="main">
+        @RenderBody()
+    </main>
 
     <footer class="border-top footer text-muted">
         <div class="container">
