@@ -1,29 +1,204 @@
 ﻿<div class="joinTitle">
     <h2>회원가입</h2>
+
     <div class="memberInfos">
         <p class="sub text-end">
-            <span class="ico">*</span>
+            <span class="subColor font12">*</span>
             필수 입력 사항
         </p>
         <form>
-            <table>
+            <table class="w-100 b_table">
                 <tbody>
                     <tr>
                         <th>
                             아이디
-                            <span class="ico">*</span>
+                            <span class="subColor">*</span>
                         </th>
                         <td>
-                            <input type="text" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" />
-                            <a class="b_btn default">중복확인</a>
-                            <p class="txt_guide">
-                                <span class="txtCase1" style="display: block">6자 이상의 영문 혹은 영문과 숫자를 조합</span>
-                                <span class="txtCase2">아이디 중복확인</span>
+                            <input class="w-332" type="text" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" />
+                            <a class="w-120 b_btn default">중복확인</a>
+                            <p class="txt_guide" style="display: none;">
+                                <span class="txtCase1" style="display: block;"> 6자 이상의 영문 혹은 영문과 숫자를 조합</span>
+                                <span class="txtCase2"> 아이디 중복확인</span>
                             </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            비밀번호
+                            <span class="subColor">*</span>
+                        </th>
+                        <td>
+                            <input class="w-332" type="text" placeholder="비밀번호를 입력해주세요" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            비밀번호확인
+                            <span class="subColor">*</span>
+                        </th>
+                        <td>
+                            <input class="w-332" type="text" placeholder="비밀번호를 한번 더 입력해주세요" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            이름
+                            <span class="subColor">*</span>
+                        </th>
+                        <td>
+                            <input class="w-332" type="text" placeholder="이름을 입력해주세요" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            이메일
+                            <span class="subColor">*</span>
+                        </th>
+                        <td>
+                            <input class="w-332" type="text" placeholder="예 : vmflsxj0@naver.com" />
+                            <a class="w-120 b_btn default">중복확인</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            휴대폰
+                            <span class="subColor">*</span>
+                        </th>
+                        <td>
+                            <input class="w-332" type="text" placeholder="숫자만 입력해주세요" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            주소
+                            <span class="subColor">*</span>
+                        </th>
+                        <td>
+                            <a class="w-332 b_btn default">
+                                주소 검색
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            성별
+                        </th>
+                        <td style="padding-top: 24px;">
+                            <div class="d-inline-block me-5">
+                                <input class="accent-5f0080" type="radio" name="sex"
+                                    style="width: 24px; height: 24px;" />
+                                <span style="vertical-align: top; margin-left: 5px;">남자</span>
+                            </div>
+                            <div class="d-inline-block me-5">
+                                <input class="accent-5f0080" type="radio" name="sex"
+                                    style="width: 24px; height: 24px;" />
+                                <span style="vertical-align: top; margin-left: 5px;">여자</span>
+                            </div>
+                            <div class="d-inline-block me-5">
+                                <input class="accent-5f0080" type="radio" name="sex"
+                                    style="width: 24px; height: 24px;" />
+                                <span style="vertical-align: top; margin-left: 5px;">선택안함</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            생년월일
+                        </th>
+                        <td>
+                            <div class="w-332 birth_day">
+                                <input type="text" pattern="[0-9]*" maxlength="4" placeholder="YYYY" />
+                                <span class="bar"></span>
+                                <input type="text" maxlength="2" placeholder="MM" />
+                                <span class="bar"></span>
+                                <input type="text" maxlength="2" placeholder="DD" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            추천인
+                        </th>
+                        <td style="padding: 24px 0px 14px 10px;">
+                            <div class="d-inline-block me-5">
+                                <input class="accent-5f0080" type="radio" name="recommand"
+                                    style="width: 24px; height: 24px;" />
+                                <span style="vertical-align: top; margin-left: 5px;">추천인 아이디</span>
+                            </div>
+                            <div class="d-inline-block me-5">
+                                <input class="accent-5f0080" type="radio" name="recommand"
+                                    style="width: 24px; height: 24px;" />
+                                <span style="vertical-align: top; margin-left: 5px;">참여 이벤트명</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="reg_agree">
+                        <th>
+                            이용약관동의
+                            <span class="subColor">*</span>
+                        </th>
+                        <td>
+                            <div id="allCheckDiv">
+                                <img src="~/images/ico_checkbox.svg" class="agree-Image" id="allCheckImage" width="24" height="24" />
+                                전체 동의합니다.
+                                <input type="checkbox" id="allCheck" />
+                                <p class="sub">선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를 이용할 수 있습니다.</p>
+                            </div>
+                            <div id="useAgreeDiv" class="m-2">
+                                <img src="~/images/ico_checkbox.svg" class="agree-Image" id="useAgreeImage" width="24" height="24" />
+                                이용약관 동의
+                                <span class="color-999">(필수)</span>
+                                <input type="checkbox" id="useAgree" />
+                            </div>
+                            <div id="essentialInfoUseAgreeDiv" class="m-2">
+                                <img src="~/images/ico_checkbox.svg" class="agree-Image" id="essentialInfoUseAgreeImage" width="24" height="24" />
+                                개인정보 수집·이용 동의
+                                <span class="color-999">(필수)</span>
+                                <input type="checkbox" id="essentialInfoUseAgree" />
+                            </div>
+                            <div id="choiceInfoUseAgreeDiv" class="m-2">
+                                <img src="~/images/ico_checkbox.svg" class="agree-Image" id="choiceInfoUseAgreeImage" width="24" height="24" />
+                                개인정보 수집·이용 동의
+                                <span class="color-999">(선택)</span>
+                                <input type="checkbox" id="choiceInfoUseAgree" />
+                            </div>
+                            <div class="m-2">
+                                <div id="infoRevAgreeDiv">
+                                    <img src="~/images/ico_checkbox.svg" class="agree-Image" id="infoRevAgreeImage" width="24" height="24" />
+                                    무료배송, 할인쿠폰 등 혜택/정보 수신 동의
+                                    <span class="color-999">(선택)</span>
+                                    <input type="checkbox" id="infoRevAgree" />
+                                </div>
+                                <div class="ms-4 mt-2">
+                                    <div class="d-inline-block" id="smsDiv">
+                                        <img src="~/images/ico_checkbox.svg" class="agree-Image" id="smsImage" width="24" height="24" />
+                                        <span class="me-5">SMS</span>
+                                        <input type="checkbox" id="smsAgree" />
+                                    </div>
+                                    <div class="d-inline-block" id="emailDiv">
+                                        <img src="~/images/ico_checkbox.svg" class="agree-Image" id="emailImage" width="24" height="24" />
+                                        <span>이메일</span>
+                                        <input type="checkbox" id="emailAgree" />
+                                    </div>
+                                    <p class="sms_info mt-2"> 동의 시 한 달간 [5%적립] + [2만원 이상 무료배송] 첫 주문 후 안내</p>
+                                </div>
+                            </div>
+                            <div id="ageCheckDiv" class="m-2">
+                                <img src="~/images/ico_checkbox.svg" class="agree-Image" id="ageCheckImage" width="24" height="24" />
+                                본인은 만 14세 이상입니다.
+                                <span class="color-999">(필수)</span>
+                                <input type="checkbox" id="ageCheck" />
+                            </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <div class="form_footer">
+                <input type="submit" class="w-240 form-join" value="가입하기" />
+            </div>
         </form>
     </div>
 </div>
+
+<script src="~/js/join.js" async></script>
