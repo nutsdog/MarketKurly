@@ -51,7 +51,7 @@ a {
     }
 
 p {
-    margin: 0px !important;
+    margin: 0px;
 }
 
 /* common css start */
@@ -303,7 +303,7 @@ p {
     border-top: 2px solid #333;
 }
 
-.memberInfos input[type=text] {
+/*.memberInfos input {
     height: 44px;
     padding: 0 14px;
     border: 1px solid #ccc;
@@ -316,12 +316,32 @@ p {
     vertical-align: top;
 }
 
-    .memberInfos input[type=text]:focus {
+    .memberInfos input:focus {
+        border: 1px solid black;
+    }*/
+#table input {
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+    border-radius: 3px;
+    background: #fff;
+    outline: none;
+    vertical-align: top;
+}
+
+    #table input:focus {
         border: 1px solid black;
     }
 
-.birth_day input[type=text]:focus {
-    border: 0px;
+.bad {
+    color: #b3130b;
+}
+
+.good {
+    color: #0f851a;
 }
 
 .memberInfos .txt_guide {
@@ -335,37 +355,80 @@ p {
     clear: both;
 }
 
-    .memberInfos .txt_guide .txtCase1 {
-        color: #b3130b;
-    }
-
-        .memberInfos .txt_guide .txtCase1::before {
-            content: '\2715';
-            display: inline-block;
-            padding-right: 3px;
-            font-size: 12px;
-            vertical-align: 0;
-        }
-
-    .memberInfos .txt_guide .txtCase2::before {
+    .memberInfos .txt_guide .txtCase1:before {
         content: '\2022';
         display: inline-block;
-        padding: 0 4px 0 2px;
+        padding: 0px 4px 0px 2px;
         font-size: 12px;
-        vertical-align: 0;
     }
 
-.memberInfos .b_btn {
-    display: inline-block;
-    height: 44px;
-    border: 0;
-    border-radius: 3px;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 40px;
-    text-align: center;
-    outline: none;
-}
+    .memberInfos .txt_guide .txtCase1.bad:before {
+        content: '\2715';
+        display: inline-block;
+        padding: 0px 4px 0px 2px;
+        font-size: 12px;
+    }
+
+    .memberInfos .txt_guide .txtCase1.good:before {
+        content: '\2713';
+        display: inline-block;
+        padding: 0px 4px 0px 2px;
+        font-size: 12px;
+    }
+
+    .memberInfos .txt_guide .txtCase2:before {
+        content: '\2022';
+        display: inline-block;
+        padding: 0px 4px 0px 2px;
+        font-size: 12px;
+    }
+
+    .memberInfos .txt_guide .txtCase2.bad:before {
+        content: '\2715';
+        display: inline-block;
+        padding: 0px 4px 0px 2px;
+        font-size: 12px;
+    }
+
+    .memberInfos .txt_guide .txtCase2.good:before {
+        content: '\2713';
+        display: inline-block;
+        padding: 0px 4px 0px 2px;
+        font-size: 12px;
+    }
+
+    .memberInfos .txt_guide .txtCase3:before {
+        content: '\2022';
+        display: inline-block;
+        padding: 0px 4px 0px 2px;
+        font-size: 12px;
+    }
+
+    .memberInfos .txt_guide .txtCase3.bad:before {
+        content: '\2715';
+        display: inline-block;
+        padding: 0px 4px 0px 2px;
+        font-size: 12px;
+    }
+
+    .memberInfos .txt_guide .txtCase3.good:before {
+        content: '\2713';
+        display: inline-block;
+        padding: 0px 4px 0px 2px;
+        font-size: 12px;
+    }
+
+    .memberInfos .b_btn {
+        display: inline-block;
+        height: 44px;
+        border: 0;
+        border-radius: 3px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 40px;
+        text-align: center;
+        outline: none;
+    }
 
     .memberInfos .b_btn.default {
         border: 1px solid #5f0080;
@@ -376,32 +439,14 @@ p {
 .birth_day {
     overflow: hidden;
     width: 332px;
-    padding-left: 18px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    text-align: center;
 }
-
-    .birth_day input[type=text] {
-        width: 84px;
-        height: 40px;
-        border: 0;
-        text-align: center;
-    }
-
-    .birth_day .bar:after {
-        content: "/";
-        width: 22px;
-        height: 100%;
-        font-size: 14px;
-        color: #ccc;
-        line-height: 42px;
-        text-align: center;
-    }
 
 .reg_agree {
     border-top: 1px solid #333;
     border-bottom: 1px solid #f4f4f4;
-    /* margin-top: 10px; */
 }
 
 .agree-Image {
@@ -414,7 +459,7 @@ p {
 
 .sms_info {
     margin-left: 34px;
-    padding: 0 0 6px 16px;
+    padding: 0 0 10px 16px;
     background: url(../images/ico_sub_dot.svg) no-repeat 0 0;
     background-size: 16px 20px;
     font-size: 12px;
@@ -429,16 +474,21 @@ p {
 }
 
 .form-join {
-    border: 1px solid #5f0081;
+    height: 56px;
+    border: 1px solid #5f0080;
     background-color: #5f0080;
     color: #fff;
     border: 0;
     border-radius: 3px;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 50px;
     text-align: center;
     outline: none;
+}
+
+.txt_guide span {
+    display: block;
 }
 /* join.html css end */
 

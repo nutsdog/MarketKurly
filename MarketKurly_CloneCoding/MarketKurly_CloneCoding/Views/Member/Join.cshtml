@@ -1,4 +1,6 @@
-﻿<div class="joinTitle">
+﻿@model Member
+
+<div class="joinTitle">
     <h2>회원가입</h2>
 
     <div class="memberInfos">
@@ -6,20 +8,20 @@
             <span class="subColor font12">*</span>
             필수 입력 사항
         </p>
-        <form>
-            <table class="w-100 b_table">
+        <form method="post" asp-action="Join" asp-controller="Member">
+            <table id="table" class="w-100 b_table">
                 <tbody>
                     <tr>
                         <th>
                             아이디
                             <span class="subColor">*</span>
                         </th>
-                        <td>
-                            <input class="w-332" type="text" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" />
-                            <a class="w-120 b_btn default">중복확인</a>
+                        <td id="td_id">
+                            <input class="w-332" type="text" asp-for="Id" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" tabindex="1" />
+                            <a class="w-120 b_btn default" id="btn_idConfirm" tabindex="2">중복확인</a>
                             <p class="txt_guide" style="display: none;">
-                                <span class="txtCase1" style="display: block;"> 6자 이상의 영문 혹은 영문과 숫자를 조합</span>
-                                <span class="txtCase2"> 아이디 중복확인</span>
+                                <span class="txtCase1">6자 이상의 영문 혹은 영문과 숫자를 조합</span>
+                                <span class="txtCase2">아이디 중복확인</span>
                             </p>
                         </td>
                     </tr>
@@ -28,8 +30,13 @@
                             비밀번호
                             <span class="subColor">*</span>
                         </th>
-                        <td>
-                            <input class="w-332" type="text" placeholder="비밀번호를 입력해주세요" />
+                        <td id="td_password">
+                            <input class="w-332" type="password" asp-for="Password" placeholder="비밀번호를 입력해주세요" tabindex="3" />
+                            <p class="txt_guide" style="display: none;">
+                                <span class="txtCase1">10자 이상 입력</span>
+                                <span class="txtCase2">영문/숫자/특수문자(공백 제외)만 허용하며, 2개 이상 조합</span>
+                                <span class="txtCase3">동일한 숫자 3개 이상 연속 사용 불가</span>
+                            </p>
                         </td>
                     </tr>
                     <tr>
@@ -37,8 +44,11 @@
                             비밀번호확인
                             <span class="subColor">*</span>
                         </th>
-                        <td>
-                            <input class="w-332" type="text" placeholder="비밀번호를 한번 더 입력해주세요" />
+                        <td id="td_passwordConfirm">
+                            <input class="w-332" type="password" placeholder="비밀번호를 한번 더 입력해주세요" tabindex="4" />
+                            <p class="txt_guide" style="display: none;">
+                                <span class="txtCase1">동일한 비밀번호를 입력해주세요.</span>
+                            </p>
                         </td>
                     </tr>
                     <tr>
@@ -47,7 +57,7 @@
                             <span class="subColor">*</span>
                         </th>
                         <td>
-                            <input class="w-332" type="text" placeholder="이름을 입력해주세요" />
+                            <input class="w-332" type="text" asp-for="Name" placeholder="이름을 입력해주세요" tabindex="5" />
                         </td>
                     </tr>
                     <tr>
@@ -55,9 +65,9 @@
                             이메일
                             <span class="subColor">*</span>
                         </th>
-                        <td>
-                            <input class="w-332" type="text" placeholder="예 : vmflsxj0@naver.com" />
-                            <a class="w-120 b_btn default">중복확인</a>
+                        <td id="td_email">
+                            <input class="w-332" type="text" asp-for="Email" placeholder="예 : vmflsxj0@naver.com" tabindex="6" />
+                            <a class="w-120 b_btn default" id="btn_emailConfirm" tabindex="7">중복확인</a>
                         </td>
                     </tr>
                     <tr>
@@ -66,7 +76,7 @@
                             <span class="subColor">*</span>
                         </th>
                         <td>
-                            <input class="w-332" type="text" placeholder="숫자만 입력해주세요" />
+                            <input class="w-332" type="text" asp-for="PhoneNumber" placeholder="숫자만 입력해주세요" tabindex="8" />
                         </td>
                     </tr>
                     <tr>
@@ -75,9 +85,13 @@
                             <span class="subColor">*</span>
                         </th>
                         <td>
-                            <a class="w-332 b_btn default">
-                                주소 검색
-                            </a>
+                            @*<input id="findAddress" class="w-332 b_btn default" type="button" value="주소 검색" />*@
+                            @*<div style="display: none;">*@
+                            <div>
+                                <input id="address" class="w-332 mb-2" type="text" asp-for="Address" readonly />
+                                <a id="findAddress" class="w-120 b_btn default" tabindex="9">주소검색</a>
+                                <input id="otherAddress" class="w-332" type="text" asp-for="OtherAddress" placeholder="나머지 주소를 입력해주세요" />
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -86,18 +100,15 @@
                         </th>
                         <td style="padding-top: 24px;">
                             <div class="d-inline-block me-5">
-                                <input class="accent-5f0080" type="radio" name="sex"
-                                    style="width: 24px; height: 24px;" />
+                                <input class="accent-5f0080" type="radio"  name="sex" value="남" style="width: 24px; height: 24px;" tabindex="10" />
                                 <span style="vertical-align: top; margin-left: 5px;">남자</span>
                             </div>
                             <div class="d-inline-block me-5">
-                                <input class="accent-5f0080" type="radio" name="sex"
-                                    style="width: 24px; height: 24px;" />
+                                <input class="accent-5f0080" type="radio"  name="sex" value="여" style="width: 24px; height: 24px;" tabindex="11" />
                                 <span style="vertical-align: top; margin-left: 5px;">여자</span>
                             </div>
                             <div class="d-inline-block me-5">
-                                <input class="accent-5f0080" type="radio" name="sex"
-                                    style="width: 24px; height: 24px;" />
+                                <input class="accent-5f0080" type="radio"  name="sex" value="무" style="width: 24px; height: 24px;" tabindex="12" />
                                 <span style="vertical-align: top; margin-left: 5px;">선택안함</span>
                             </div>
                         </td>
@@ -107,12 +118,8 @@
                             생년월일
                         </th>
                         <td>
-                            <div class="w-332 birth_day">
-                                <input type="text" pattern="[0-9]*" maxlength="4" placeholder="YYYY" />
-                                <span class="bar"></span>
-                                <input type="text" maxlength="2" placeholder="MM" />
-                                <span class="bar"></span>
-                                <input type="text" maxlength="2" placeholder="DD" />
+                            <div class="w-332">
+                                <input class="w-100" style="text-align: center" type="text" asp-for="BirthDay" pattern="[0-9]*" maxlength="8" placeholder="YYYYMMDD" tabindex="13" />
                             </div>
                         </td>
                     </tr>
@@ -123,12 +130,12 @@
                         <td style="padding: 24px 0px 14px 10px;">
                             <div class="d-inline-block me-5">
                                 <input class="accent-5f0080" type="radio" name="recommand"
-                                    style="width: 24px; height: 24px;" />
+                                       style="width: 24px; height: 24px;" />
                                 <span style="vertical-align: top; margin-left: 5px;">추천인 아이디</span>
                             </div>
                             <div class="d-inline-block me-5">
                                 <input class="accent-5f0080" type="radio" name="recommand"
-                                    style="width: 24px; height: 24px;" />
+                                       style="width: 24px; height: 24px;" />
                                 <span style="vertical-align: top; margin-left: 5px;">참여 이벤트명</span>
                             </div>
                         </td>
@@ -145,32 +152,32 @@
                                 <input type="checkbox" id="allCheck" />
                                 <p class="sub">선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를 이용할 수 있습니다.</p>
                             </div>
-                            <div id="useAgreeDiv" class="m-2">
+                            <div id="useAgreeDiv" class="">
                                 <img src="~/images/ico_checkbox.svg" class="agree-Image" id="useAgreeImage" width="24" height="24" />
                                 이용약관 동의
                                 <span class="color-999">(필수)</span>
                                 <input type="checkbox" id="useAgree" />
                             </div>
-                            <div id="essentialInfoUseAgreeDiv" class="m-2">
+                            <div id="essentialInfoUseAgreeDiv" class="">
                                 <img src="~/images/ico_checkbox.svg" class="agree-Image" id="essentialInfoUseAgreeImage" width="24" height="24" />
                                 개인정보 수집·이용 동의
                                 <span class="color-999">(필수)</span>
                                 <input type="checkbox" id="essentialInfoUseAgree" />
                             </div>
-                            <div id="choiceInfoUseAgreeDiv" class="m-2">
+                            <div id="choiceInfoUseAgreeDiv" class="">
                                 <img src="~/images/ico_checkbox.svg" class="agree-Image" id="choiceInfoUseAgreeImage" width="24" height="24" />
                                 개인정보 수집·이용 동의
                                 <span class="color-999">(선택)</span>
                                 <input type="checkbox" id="choiceInfoUseAgree" />
                             </div>
-                            <div class="m-2">
+                            <div class="">
                                 <div id="infoRevAgreeDiv">
                                     <img src="~/images/ico_checkbox.svg" class="agree-Image" id="infoRevAgreeImage" width="24" height="24" />
                                     무료배송, 할인쿠폰 등 혜택/정보 수신 동의
                                     <span class="color-999">(선택)</span>
                                     <input type="checkbox" id="infoRevAgree" />
                                 </div>
-                                <div class="ms-4 mt-2">
+                                <div class="ms-4">
                                     <div class="d-inline-block" id="smsDiv">
                                         <img src="~/images/ico_checkbox.svg" class="agree-Image" id="smsImage" width="24" height="24" />
                                         <span class="me-5">SMS</span>
@@ -181,10 +188,10 @@
                                         <span>이메일</span>
                                         <input type="checkbox" id="emailAgree" />
                                     </div>
-                                    <p class="sms_info mt-2"> 동의 시 한 달간 [5%적립] + [2만원 이상 무료배송] 첫 주문 후 안내</p>
+                                    <p class="sms_info"> 동의 시 한 달간 [5%적립] + [2만원 이상 무료배송] 첫 주문 후 안내</p>
                                 </div>
                             </div>
-                            <div id="ageCheckDiv" class="m-2">
+                            <div id="ageCheckDiv" class="">
                                 <img src="~/images/ico_checkbox.svg" class="agree-Image" id="ageCheckImage" width="24" height="24" />
                                 본인은 만 14세 이상입니다.
                                 <span class="color-999">(필수)</span>
@@ -201,4 +208,58 @@
     </div>
 </div>
 
-<script src="~/js/join.js" async></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="~/js/join.js"></script>
+<script>
+    let findAddressButton = document.querySelector("#findAddress");
+
+    findAddressButton.addEventListener("click", function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function (data) {
+                document.getElementById("address").setAttribute("value", data["address"]);
+                document.getElementById("otherAddress").focus();
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                //// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                //// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                //var addr = ''; // 주소 변수
+                //var extraAddr = ''; // 참고항목 변수
+
+                ////사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                //if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                //    addr = data.roadAddress;
+                //} else { // 사용자가 지번 주소를 선택했을 경우(J)
+                //    addr = data.jibunAddress;
+                //}
+
+                //// 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                //if (data.userSelectedType === 'R') {
+                //    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                //    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                //    if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                //        extraAddr += data.bname;
+                //    }
+                //    // 건물명이 있고, 공동주택일 경우 추가한다.
+                //    if (data.buildingName !== '' && data.apartment === 'Y') {
+                //        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                //    }
+                //    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                //    if (extraAddr !== '') {
+                //        extraAddr = ' (' + extraAddr + ')';
+                //    }
+                //    // 조합된 참고항목을 해당 필드에 넣는다.
+                //    document.getElementById("sample6_extraAddress").value = extraAddr;
+
+                //} else {
+                //    document.getElementById("sample6_extraAddress").value = '';
+                //}
+
+                //// 우편번호와 주소 정보를 해당 필드에 넣는다.
+                //document.getElementById('sample6_postcode').value = data.zonecode;
+                //document.getElementById("sample6_address").value = addr;
+                //// 커서를 상세주소 필드로 이동한다.
+                //document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    })
+</script>
